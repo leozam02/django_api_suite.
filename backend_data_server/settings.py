@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+import firebase_admin
+from firebase_admin import credentials
 
 STATIC_URL = "static/"
 
@@ -44,6 +46,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "demo_rest_api",
+    "firebase_admin",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -133,3 +137,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, STATIC_URL),
 ]
+
+# Coloque la ruta relativa al archivo con la clave privada
+FIREBASE_CREDENTIALS_PATH = credentials.Certificate("secrets/landing-key.json")
+
+# Inicialice la conexión con el Realtime Database con la clave privada y la URL de referencia
+firebase_admin.initialize_app(FIREBASE_CREDENTIALS_PATH, {
+   'databaseURL': 'https://oceanslove-59917-default-rtdb.firebaseio.com/'
+})
