@@ -15,6 +15,14 @@ import os
 import firebase_admin
 from firebase_admin import credentials
 
+# Coloque la ruta relativa al archivo con la clave privada
+FIREBASE_CREDENTIALS_PATH = credentials.Certificate("secrets/landing-key.json")
+
+# Inicialice la conexión con el Realtime Database con la clave privada y la URL de referencia
+firebase_admin.initialize_app(FIREBASE_CREDENTIALS_PATH, {
+   'databaseURL': 'https://oceanslove-59917-default-rtdb.firebaseio.com/'
+})
+
 STATIC_URL = "static/"
 
 
@@ -141,10 +149,3 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = "assets/"
 
-# Coloque la ruta relativa al archivo con la clave privada
-FIREBASE_CREDENTIALS_PATH = credentials.Certificate("secrets/landing-key.json")
-
-# Inicialice la conexión con el Realtime Database con la clave privada y la URL de referencia
-firebase_admin.initialize_app(FIREBASE_CREDENTIALS_PATH, {
-   'databaseURL': 'https://oceanslove-59917-default-rtdb.firebaseio.com/'
-})
