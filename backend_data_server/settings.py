@@ -31,7 +31,7 @@ SECRET_KEY = "django-insecure-vjovucw$rqu$=+^ba%q#*nubbo!^d#(_(0@4!#jz4@zeb0pd8c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ltzambra.pythonanywhere.com']
 
 
 # Application definition
@@ -138,6 +138,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, STATIC_URL),
 ]
+
+STATIC_ROOT = "assets/"
 
 # Coloque la ruta relativa al archivo con la clave privada
 FIREBASE_CREDENTIALS_PATH = credentials.Certificate("secrets/landing-key.json")
