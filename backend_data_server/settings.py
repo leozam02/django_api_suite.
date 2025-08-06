@@ -39,7 +39,9 @@ SECRET_KEY = "django-insecure-vjovucw$rqu$=+^ba%q#*nubbo!^d#(_(0@4!#jz4@zeb0pd8c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ltzambra.pythonanywhere.com']
+ALLOWED_HOSTS = ['ltzambra.pythonanywhere.com',
+                 '127.0.0.1', 'localhost']
+
 
 
 # Application definition

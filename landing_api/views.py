@@ -6,7 +6,7 @@ from datetime import datetime
 
 class LandingAPI(APIView):
     name = "Landing API"
-    collection_name = "landing_collection"  # Cambia el nombre según tu colección en Firebase
+    collection_name = "reservations" # Cambia el nombre según tu colección en Firebase
 
     # Aquí puedes agregar los métodos CRUD (get, post, put, patch, delete) según lo necesites
     def get(self, request):
@@ -16,9 +16,12 @@ class LandingAPI(APIView):
 
       # get: Obtiene todos los elementos de la col ección
       data = ref.get()
+      
 
       # Devuelve un arreglo JSON
       return Response(data, status=status.HTTP_200_OK)
+     
+
     
     
     def post(self, request):
