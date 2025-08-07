@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
+
 import firebase_admin
 from firebase_admin import credentials
 
@@ -19,12 +20,10 @@ from firebase_admin import credentials
 FIREBASE_CREDENTIALS_PATH = credentials.Certificate("secrets/landing-key.json")
 
 # Inicialice la conexión con el Realtime Database con la clave privada y la URL de referencia
-firebase_admin.initialize_app(FIREBASE_CREDENTIALS_PATH, {
-   'databaseURL': 'https://oceanslove-59917-default-rtdb.firebaseio.com/'
-})
-
-STATIC_URL = "static/"
-
+firebase_admin.initialize_app(
+    FIREBASE_CREDENTIALS_PATH,
+    {"databaseURL": "https://oceanslove-59917-default-rtdb.firebaseio.com/"},
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,9 +38,7 @@ SECRET_KEY = "django-insecure-vjovucw$rqu$=+^ba%q#*nubbo!^d#(_(0@4!#jz4@zeb0pd8c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ltzambra.pythonanywhere.com',
-                 '127.0.0.1', 'localhost']
-
+ALLOWED_HOSTS = ["ltzambra.pythonanywhere.com", "127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -57,7 +54,6 @@ INSTALLED_APPS = [
     "rest_framework",
     "demo_rest_api",
     "firebase_admin",
-    #"rest_framework",
     "landing_api",
 ]
 
@@ -76,7 +72,6 @@ ROOT_URLCONF = "backend_data_server.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -85,7 +80,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
             ],
         },
-        "DIRS": [os.path.join(BASE_DIR, 'templates')],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
     },
 ]
 
@@ -150,4 +145,3 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = "assets/"
-
